@@ -3,7 +3,7 @@ import './App.css';
 import { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 function App() {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState('Cosenza');
   const [loading, setLoading] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
 
@@ -15,7 +15,7 @@ function App() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
       );
       setWeatherData(response.data);
       console.log(response.data)
@@ -27,12 +27,12 @@ function App() {
 
   };
   return (
-    <div className='bg-gray-600 mx-auto flex justify-center max-w-xl flex-col'>
+    <div className='bg-gray-600 mx-auto flex justify-center max-w-xl flex-col h-screen transition-all'>
       <div className='bg-gray-600 mx-auto flex justify-center max-w-xl p-3
     '>
-        <form onSubmit={fetchWeather} className='flex items-center'>
+        <form onSubmit={fetchWeather} className='flex items-center '>
           <input
-            className='bg-gray-600 text-white p-2 border border-black'
+            className='bg-gray-600 text-white p-2 border border-black shadow-sm shadow-black'
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
@@ -42,14 +42,13 @@ function App() {
           </button>
         </form>
         {loading && <div>Caricamento...</div>}
-        {loading && <div>Caricamento...</div>}
 
       </div>
       {weatherData && (
-        <div className='flex items-center p-4 h-screen text-white flex-col'>
-          <h2 className='text-6xl'>{weatherData.name}</h2>
-          <p className='text-1xl'>{weatherData.weather.description}</p>
-          <p className='text-6xl '>{weatherData.main.temp}°C</p>
+        <div className='flex items-center p-4 h-screen text-white flex-col transition-all'>
+          <h2 className='pt-3 text-6xl text-red-500 drop-shadow shadow-neutral-800 capitalize'>{weatherData.name}</h2>
+          <p className=' pt-3 text-3xl text capitalize'>{weatherData.weather[0].description}</p>
+          <p className='pt-3 text-6xl '>{weatherData.main.temp}°C</p>
         </div>
       )}
     </div>
