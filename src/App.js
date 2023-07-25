@@ -2,11 +2,31 @@ import axios from 'axios';
 import './App.css';
 import { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
+import sun from './assets/sun.png';
+import Clouds from './assets/clouds.png';
+import rain from './assets/cloudy.png';
+import clearSky from './assets/clear-sky.png';
+
 function App() {
   const [city, setCity] = useState('Cosenza');
   const [loading, setLoading] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
+  
+  function getWeatherImage(main) {
+    const lowerCaseDescription = main.trim();
+  
+    if (lowerCaseDescription === 'Clear') {
+      return sun;
+    }
+    if (lowerCaseDescription === 'Clouds') {
+      return Clouds;
+    }
+    if (lowerCaseDescription === 'Rain') {
+      return rain;
+    }
 
+    return clearSky;
+  };
 
   const apiKey = process.env.REACT_APP_WEATHER_KEY;
 
@@ -48,6 +68,11 @@ function App() {
         <div className='flex items-center p-4 h-screen text-white flex-col transition-all'>
           <h2 className='pt-3 text-6xl text-red-500 drop-shadow shadow-neutral-800 capitalize'>{weatherData.name}</h2>
           <p className=' pt-3 text-3xl text capitalize'>{weatherData.weather[0].description}</p>
+          <img
+            src={getWeatherImage(weatherData.weather[0].main)}
+            alt={weatherData.weather[0].main}
+            className='w-32 h-32'
+          />
           <p className='pt-3 text-6xl '>{weatherData.main.temp}°C</p>
         </div>
       )}
