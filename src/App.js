@@ -69,17 +69,17 @@ function App() {
       </div>
       {weatherData && (
         <div className='flex items-center p-4 h-screen text-white flex-col transition-all'>
-          <h2 className='pt-3 text-6xl text-red-500 drop-shadow-lg shadow-neutral-800 uppercase tracking-tighter'>{weatherData.name}</h2>
-          <p className=' pt-3 text-3xl text capitalize drop-shadow-md shadow-black'>{weatherData.weather[0].description}</p>
+          <h2 className='pt-3 text-6xl text-red-500 drop-shadow-lg shadow-neutral-800 uppercase tracking-tighter font-black'>{weatherData.name}</h2>
+          <p className=' pt-3 text-3xl text capitalize drop-shadow-md shadow-black font-normal'>{weatherData.weather[0].description}</p>
           <img
             src={getWeatherImage(weatherData.weather[0].main)}
             alt={weatherData.weather[0].main}
             className='w-32 h-32 drop-shadow-2xl shadow-black'
           />
-          <p className='pt-3 text-6xl drop-shadow-lg shadow-black'>{weatherData.main.temp}°C</p>
-          <p className=' pt-3 text-2xl text capitalize drop-shadow-md shadow-black'>Visibilità: {visibilityInKM} Km</p>
-          <p className=' text-2xl text capitalize drop-shadow-md shadow-black'>Umidità: {weatherData.main.humidity} %</p>
-          <p className=' text-2xl text  drop-shadow-md shadow-black'>Vento: {roundedSpeed} Km/h</p>
+          <p className='pt-3 text-6xl drop-shadow-lg shadow-black font-bold'>{weatherData.main.temp}°C</p>
+          <p className=' pt-3 text-2xl text capitalize drop-shadow-md shadow-black font-thin'>Visibilità: {visibilityInKM} Km</p>
+          <p className=' text-2xl text capitalize drop-shadow-md shadow-black font-thin'>Umidità: {weatherData.main.humidity} %</p>
+          <p className=' text-2xl text  drop-shadow-md shadow-black font-thin'>Vento: {roundedSpeed} Km/h</p>
         </div>
       )}
     </div>
