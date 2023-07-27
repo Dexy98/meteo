@@ -11,10 +11,10 @@ function App() {
   const [city, setCity] = useState('Cosenza');
   const [loading, setLoading] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
-  
+
   function getWeatherImage(main) {
     const lowerCaseDescription = main.trim();
-  
+
     if (lowerCaseDescription === 'Clear') {
       return sun;
     }
@@ -46,8 +46,11 @@ function App() {
     }
 
   };
+  const visibilityInKM = weatherData.visibility / 1000;
+  const speedInKmh = weatherData.wind.speed * 3.6;
+  const roundedSpeed = Math.round(speedInKmh);
   return (
-    <div className='bg-gray-600 mx-auto flex justify-center max-w-xl flex-col h-screen transition-all'>
+    <div className='bg-gray-600 mx-auto flex justify-center max-w-xl flex-col h-screen transition-all drop-shadow-2xl shadow-black shadow-xl'>
       <div className='bg-gray-600 mx-auto flex justify-center max-w-xl p-3
     '>
         <form onSubmit={fetchWeather} className='flex items-center '>
@@ -66,14 +69,17 @@ function App() {
       </div>
       {weatherData && (
         <div className='flex items-center p-4 h-screen text-white flex-col transition-all'>
-          <h2 className='pt-3 text-6xl text-red-500 drop-shadow shadow-neutral-800 capitalize'>{weatherData.name}</h2>
-          <p className=' pt-3 text-3xl text capitalize'>{weatherData.weather[0].description}</p>
+          <h2 className='pt-3 text-6xl text-red-500 drop-shadow-lg shadow-neutral-800 uppercase tracking-tighter'>{weatherData.name}</h2>
+          <p className=' pt-3 text-3xl text capitalize drop-shadow-md shadow-black'>{weatherData.weather[0].description}</p>
           <img
             src={getWeatherImage(weatherData.weather[0].main)}
             alt={weatherData.weather[0].main}
-            className='w-32 h-32'
+            className='w-32 h-32 drop-shadow-2xl shadow-black'
           />
-          <p className='pt-3 text-6xl '>{weatherData.main.temp}°C</p>
+          <p className='pt-3 text-6xl drop-shadow-lg shadow-black'>{weatherData.main.temp}°C</p>
+          <p className=' pt-3 text-2xl text capitalize drop-shadow-md shadow-black'>Visibilità: {visibilityInKM} Km</p>
+          <p className=' text-2xl text capitalize drop-shadow-md shadow-black'>Umidità: {weatherData.main.humidity} %</p>
+          <p className=' text-2xl text  drop-shadow-md shadow-black'>Vento: {roundedSpeed} Km/h</p>
         </div>
       )}
     </div>
