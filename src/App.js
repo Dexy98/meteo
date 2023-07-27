@@ -46,8 +46,8 @@ function App() {
     }
 
   };
-  const visibilityInKM = weatherData.visibility / 1000;
-  const speedInKmh = weatherData.wind.speed * 3.6;
+  const visibilityInKM = weatherData?.visibility / 1000;
+  const speedInKmh = weatherData?.wind.speed * 3.6;
   const roundedSpeed = Math.round(speedInKmh);
   return (
     <div className='bg-gray-600 mx-auto flex justify-center max-w-xl flex-col h-screen transition-all drop-shadow-2xl shadow-black shadow-xl'>
