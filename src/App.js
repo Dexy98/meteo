@@ -51,7 +51,7 @@ function App() {
   const speedInKmh = weatherData?.list[0].wind.speed * 3.6;
   const roundedSpeed = Math.round(speedInKmh);
   return (
-    <div className='bg-gray-600 mx-auto flex justify-center max-w-xl flex-col h-screen transition-all drop-shadow-2xl shadow-black shadow-xl'>
+    <div className='bg-gray-600 mx-auto flex justify-center max-w-xl flex-col h-full transition-all drop-shadow-2xl shadow-black shadow-xl'>
       <h1 className='flex justify-center text-white text-4xl font-bold -tracking-tighter mt-1'>METEO</h1>
       <div className='bg-gray-600 mx-auto flex justify-center max-w-xl p-3
     '>
