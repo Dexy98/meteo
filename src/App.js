@@ -86,7 +86,7 @@ function App() {
           <p className=' text-2xl text  drop-shadow-md shadow-black font-thin'>Vento: {roundedSpeed} Km/h</p>
 
           <article className='w-full overflow-x-auto mt-8'>
-            <div className='grid grid-flow-col grid-cols-3 gap-4' style={{ width: `${weatherData.list.length * 190}px` }} >
+            <div className=' grid-flow-col gap-5 inline-grid' style={{gridAutoColumns: "15ch"}}  >
             <WeatherCard weatherData={weatherData} getWeatherImage={getWeatherImage} index={1} /> 
             <WeatherCard weatherData={weatherData} getWeatherImage={getWeatherImage} index={2} /> 
             <WeatherCard weatherData={weatherData} getWeatherImage={getWeatherImage} index={3} /> 
