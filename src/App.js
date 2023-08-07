@@ -7,6 +7,8 @@ import sun from './assets/sun.png';
 import Clouds from './assets/clouds.png';
 import rain from './assets/cloudy.png';
 import clearSky from './assets/clear-sky.png';
+import Lottie from "lottie-react";
+import Loading from "./assets/lottie/loading.json"
 
 function App() {
   const [city, setCity] = useState('Cosenza');
@@ -53,6 +55,8 @@ function App() {
   const roundedSpeed = Math.round(speedInKmh);
   return (
     <div className='bg-gray-600 mx-auto flex justify-center max-w-xl flex-col h-full transition-all drop-shadow-2xl shadow-black shadow-xl'>
+      {loading && <div><Lottie animationData={Loading} loop={true}/></div>}
+
       <h1 className='flex justify-center text-white text-4xl font-bold -tracking-tighter mt-1'>METEO</h1>
       <div className='bg-gray-600 mx-auto flex justify-center max-w-xl p-3
     '>
@@ -68,7 +72,6 @@ function App() {
             <BsSearch size={30} className='text-white mx-2' />
           </button>
         </form>
-        {loading && <div>Caricamento...</div>}
 
       </div>
       {weatherData && (
