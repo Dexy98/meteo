@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/meteo/static/css/main.927ffd99.css",
-    "main.js": "/meteo/static/js/main.f401e921.js",
+    "main.css": "/meteo/static/css/main.1d5fa46a.css",
+    "main.js": "/meteo/static/js/main.bf4baa61.js",
     "static/media/clear-sky.png": "/meteo/static/media/clear-sky.0756fd770f55ea454fd7.png",
     "static/media/cloudy.png": "/meteo/static/media/cloudy.f009e441a604361a2783.png",
     "static/media/sun.png": "/meteo/static/media/sun.6d48da504f4816188c8d.png",
     "static/media/clouds.png": "/meteo/static/media/clouds.15eb556cd941ec7fc2b4.png",
     "index.html": "/meteo/index.html",
-    "main.927ffd99.css.map": "/meteo/static/css/main.927ffd99.css.map",
-    "main.f401e921.js.map": "/meteo/static/js/main.f401e921.js.map"
+    "main.1d5fa46a.css.map": "/meteo/static/css/main.1d5fa46a.css.map",
+    "main.bf4baa61.js.map": "/meteo/static/js/main.bf4baa61.js.map"
   },
   "entrypoints": [
-    "static/css/main.927ffd99.css",
-    "static/js/main.f401e921.js"
+    "static/css/main.1d5fa46a.css",
+    "static/js/main.bf4baa61.js"
   ]
 }
