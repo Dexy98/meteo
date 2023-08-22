@@ -2,13 +2,24 @@
 import React from 'react';
 
 function WeatherCard(props) {
+  
   const index = props.index; // questo è il nuovo props che aggiungi
   const visibilityInKM = props.weatherData?.list[index].visibility / 1000;
   const speedInKmh = props.weatherData?.list[index].wind.speed * 3.6;
   const roundedSpeed = Math.round(speedInKmh);
+
+  let ora = props.weatherData.list[index].dt_txt
+  const currentDate = new Date();
+  const tomorrowDate = currentDate.getDate()+ 1 +"-" +( currentDate.getMonth()+1) ;
+
+  const parts = ora.split(' ')
+  const data = parts[0]
+  const time = parts[1]
+
+
   return (
     <div className='flex flex-col justify-center items-center h-[auto] w-[auto] text-center '>
-      <h4>Data: {props.weatherData.list[index].dt_txt}</h4>
+      <h4>{props.weatherData.list[index].dt_txt}</h4>
       <p className=' pt-3 text-3xl text capitalize drop-shadow-md shadow-black font-normal'>{props.weatherData.list[index].weather[0].description}</p>
       <img
         src={props.getWeatherImage(props.weatherData.list[index].weather[0].main)}
