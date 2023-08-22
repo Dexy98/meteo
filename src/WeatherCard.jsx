@@ -19,7 +19,7 @@ function WeatherCard(props) {
 
   return (
     <div className='flex flex-col justify-center items-center h-[auto] w-[auto] text-center '>
-      <h4>{props.weatherData.list[index].dt_txt}</h4>
+      <h4>{data} <br /> {time}</h4>
       <p className=' pt-3 text-3xl text capitalize drop-shadow-md shadow-black font-normal'>{props.weatherData.list[index].weather[0].description}</p>
       <img
         src={props.getWeatherImage(props.weatherData.list[index].weather[0].main)}
