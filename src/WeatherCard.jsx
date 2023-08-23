@@ -8,13 +8,33 @@ function WeatherCard(props) {
   const speedInKmh = props.weatherData?.list[index].wind.speed * 3.6;
   const roundedSpeed = Math.round(speedInKmh);
 
-  let ora = props.weatherData.list[index].dt_txt
-  const currentDate = new Date();
-  const tomorrowDate = currentDate.getDate()+ 1 +"-" +( currentDate.getMonth()+1) ;
+  let ora = new Date (props.weatherData.list[index].dt_txt)
+  const options = {
+    // weekday: false,
+    // year: false,
+    month: "long",
+    day: "numeric",
+    hour12: false ,
+    hour: "2-digit", 
+    // minute: "2-digit",
 
-  const parts = ora.split(' ')
-  const data = parts[0]
-  const time = parts[1]
+  }
+  const ok = ora.toLocaleDateString("it-IT", options);
+  const diviso = ok.split(' ')
+  const giorno = diviso[0] + ' ' + diviso[1]
+  const time = diviso[3] + ' ' + diviso[4];
+  
+  const currentDate = new Date();
+  const dataCorrente = currentDate.getDate();
+  const dataDomani = currentDate.getDate()+1;
+  let data = '';
+  if (dataCorrente == diviso[0]) {
+    data = "OGGI";
+  } else if(dataDomani == diviso[0]) {
+    data = "Domani";
+  }
+  
+
 
 
   return (
